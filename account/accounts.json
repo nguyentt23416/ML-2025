@@ -1,0 +1,18 @@
+{
+    "users": {
+        "buh": {
+            "password_hash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
+            "remember_password": false,
+            "created_at": "2025-11-17T20:11:48.550888"
+        },
+        "nguyen": {
+            "password_hash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
+            "remember_password": false,
+            "created_at": "2025-11-17T21:57:08.880356"
+        }
+    },
+    "metadata": {
+        "total_accounts": 2,
+        "version": "1.0"
+    }
+}
