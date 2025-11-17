@@ -5,7 +5,7 @@ from tkinter import ttk
 import threading
 import pandas as pd
 import DashboardFunction as dbf
-import subprocess
+import navigation  # Import the navigation helper
 
 
 def load_asset(path):
@@ -82,21 +82,15 @@ def on_click_red():
     threading.Thread(target=lambda: update_table(dbf.get_running_out_products_df)).start()
 
 
-# Navigation functions
+# Navigation functions using the helper
 def open_management():
-    window.destroy()
-    subprocess.Popen([sys.executable, "management.py"])
-
+    navigation.open_management(window)
 
 def open_prediction():
-    window.destroy()
-    subprocess.Popen([sys.executable, "prediction.py"])
-
+    navigation.open_prediction(window)
 
 def open_login():
-    window.destroy()
-    subprocess.Popen([sys.executable, "login.py"])
-
+    navigation.open_login(window)
 
 def open_statistic():
     # Already in statistic, do nothing or refresh

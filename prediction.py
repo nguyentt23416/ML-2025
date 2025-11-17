@@ -12,7 +12,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from sklearn.preprocessing import LabelEncoder
 import warnings
-import subprocess
+import navigation  # Import the navigation helper
 
 warnings.filterwarnings('ignore')
 
@@ -159,18 +159,15 @@ class PredictionApp:
             font=("Roboto", 32 * -1)
         )
 
-        # Navigation functions
+        # Navigation functions using the helper
         def open_statistic():
-            self.window.destroy()
-            subprocess.Popen([sys.executable, "statistic.py"])
+            navigation.open_statistic(self.window)
 
         def open_management():
-            self.window.destroy()
-            subprocess.Popen([sys.executable, "management.py"])
+            navigation.open_management(self.window)
 
         def open_login():
-            self.window.destroy()
-            subprocess.Popen([sys.executable, "login.py"])
+            navigation.open_login(self.window)
 
         def open_prediction():
             # Already in prediction, do nothing
@@ -277,8 +274,8 @@ class PredictionApp:
         # Initialize with cleared areas
         self.clear_all_areas()
 
-    # ... (rest of the PredictionApp class methods remain the same)
-    # Only the navigation parts were modified above
+    # ... (rest of the PredictionApp class methods remain exactly the same)
+    # Only the navigation parts in setup_ui() were modified above
 
     def clear_all_areas(self):
         """Clear all areas and set default states"""

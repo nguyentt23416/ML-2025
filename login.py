@@ -1,3 +1,4 @@
+
 import os
 import sys
 import tkinter as tk
@@ -406,9 +407,27 @@ class LoginSystem:
 
     def open_statistic_after_login(self):
         """Close login window and open statistic.py"""
-        self.window.destroy()
-        # Open statistic.py
-        subprocess.Popen([sys.executable, "statistic.py"])
+        try:
+            # Get the directory of the current script
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+            statistic_path = os.path.join(current_dir, "statistic.py")
+
+            # Verify the file exists
+            if not os.path.exists(statistic_path):
+                messagebox.showerror("Error", f"File not found: {statistic_path}")
+                return
+
+            print(f"Opening: {statistic_path}")  # Debug print
+
+            # Close current window
+            self.window.destroy()
+
+            # Open statistic.py with proper path handling
+            subprocess.Popen([sys.executable, statistic_path])
+
+        except Exception as e:
+            messagebox.showerror("Error", f"Failed to open statistic: {str(e)}")
+            print(f"Error details: {e}")
 
     def get_current_timestamp(self):
         """Get current timestamp for account creation"""

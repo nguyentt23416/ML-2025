@@ -5,25 +5,22 @@ import os
 import sys
 import tkinter as tk
 import PMFunction # Import file chức năng
-import subprocess
+import navigation  # Import the navigation helper
 
 def load_asset(path):
     base = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
     assets = os.path.join(base, "assets")
     return os.path.join(assets, path)
 
-# Navigation functions
+# Navigation functions using the helper
 def open_statistic():
-    window.destroy()
-    subprocess.Popen([sys.executable, "statistic.py"])
+    navigation.open_statistic(window)
 
 def open_prediction():
-    window.destroy()
-    subprocess.Popen([sys.executable, "prediction.py"])
+    navigation.open_prediction(window)
 
 def open_login():
-    window.destroy()
-    subprocess.Popen([sys.executable, "login.py"])
+    navigation.open_login(window)
 
 def open_management():
     # Already in management, do nothing
